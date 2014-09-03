@@ -1,0 +1,22 @@
+---
+zap_enabled: yes                       # Enable module
+
+zap_major                              : "2"
+zap_minor                              : "3.1"
+zap_listen_ip                          : "127.0.0.1"
+zap_port                               : "8090"
+
+## Where to install zap and Unix user/group
+zap_owner                              : "zap" 
+zap_group                              : "zap"
+zap_base_dir                           : "/usr/local/zap"
+
+## Most likely you dont need to edit 
+zap_service_state     : 'started'
+zap_service_enabled   : 'yes'
+zap_version           : "{{zap_major}}.{{zap_minor}}"
+zap_name              : "zap-{{zap_version}}"
+zap_archive_extracted : "ZAP_{{zap_version}}"
+zap_archive           : "{{zap_archive_extracted}}_Linux.tar.gz"
+zap_url               : "http://sourceforge.net/projects/zaproxy/files/{{zap_version}}/{{zap_archive}}/download"
+zap_home_dir          : "{{zap_base_dir}}/{{zap_name}}"

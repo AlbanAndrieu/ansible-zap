@@ -1,0 +1,81 @@
+---
+# This playbook contains common plays that will be run on all nodes.
+
+#- name: Install unzip
+#  apt: 
+#    name=unzip
+#  tags: sonar_setup
+  
+- name: Add group "zap"
+  group: 
+    name="{{zap_group}}"
+  tags: zap_setup
+
+- name: Add user "zap"
+  user: 
+    name="{{zap_owner}}"
+    group="{{zap_group}}"
+    home="{{zap_base_dir}}"
+    shell="/bin/bash"
+  tags: zap_setup
+
+- name: Download zap
+  get_url: 
+    url="{{zap_url}}"
+    dest="/tmp/{{zap_archive}}"
+  tags: zap_setup
+
+- name: Create Basedir
+  file: 
+    dest="{{zap_base_dir}}"
+    state=directory
+    owner="{{zap_owner}}"
+    group="{{zap_group}}"
+  tags: zap_setup
+
+- name: Extract archive zap
+  unarchive: 
+    src="/tmp/{{zap_archive}}"
+    dest="{{zap_base_dir}}/"
+    owner="{{zap_owner}}"
+    group="{{zap_group}}"
+    copy=no
+    creates="{{zap_home_dir}}/bin"
+#  notify: restart zap
+  sudo_user: "{{zap_owner}}"
+  tags: zap_setup
+
+- name: create a link to zap
+  file:
+    src="{{zap_base_dir}}/{{zap_archive_extracted}}"
+    dest="{{zap_base_dir}}/zap{{zap_major}}"
+    state=link
+    owner="{{zap_owner}}"
+    group="{{zap_group}}"
+  tags: zap_setup
+
+- debug: msg="Start zap /{{zap_base_dir}}/zap{{zap_major}}/zap.sh"
+
+#- name: Configure zap server properties
+#  template:
+#    src=zap.conf.j2
+#    dest="{{zap_conf_dir}}/zap.properties"
+#  tags: zap_setup
+#  notify: restart zap
+
+#- name: Install zap init script
+#  file: 
+#    src="{{zap_bin_dir}}/linux-x86-{{ansible_userspace_bits}}/zap.sh"
+#    dest="/etc/init.d/zap"
+#    state=link
+#    mode=0755
+#    owner="root"
+#    group="root"
+#  tags: zap_setup
+#
+#- name: Ensure Sonar is running and set to start on boot.
+#  service: name=zap state=started enabled=yes
+#  tags: zap_setup
+
+
+
