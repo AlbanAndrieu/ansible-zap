@@ -1,4 +1,4 @@
-# ansible-vagrant
+# ansible-zap
 
 A role for installing zap.
 
