@@ -2,28 +2,28 @@
 # This playbook contains common plays that will be run on all nodes.
 
 - name: Add group "zap"
-  group: 
+  group:
     name="{{zap_group}}"
   tags: zap_setup
 
 - name: Add user "zap"
-  user: 
+  user:
     name="{{zap_owner}}"
     group="{{zap_group}}"
     home="{{zap_base_dir}}"
     shell="{{zap_shell}}"
-    comment="Zap User" 
+    comment="Zap User"
     createhome=yes
   tags: zap_setup
 
 - name: Download zap
-  get_url: 
+  get_url:
     url="{{zap_url}}"
     dest="/tmp/{{zap_archive}}"
   tags: zap_setup
 
 - name: Create base directory
-  file: 
+  file:
     dest="{{zap_base_dir}}"
     state=directory
     owner="{{zap_owner}}"
@@ -31,7 +31,7 @@
   tags: zap_setup
 
 - name: Extract archive zap
-  unarchive: 
+  unarchive:
     src="/tmp/{{zap_archive}}"
     dest="{{zap_base_dir}}/"
     owner="{{zap_owner}}"
@@ -48,5 +48,5 @@
     owner="{{zap_owner}}"
     group="{{zap_group}}"
   tags: zap_setup
-  
+
 - debug: msg="Start zap {{zap_base_dir}}/zap{{zap_major}}/zap.sh"
