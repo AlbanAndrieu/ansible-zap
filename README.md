@@ -1,24 +1,35 @@
-# ansible-zap
+ansible-zap
+====================
 
 A role for installing zap.
 
+[![Build Status](https://api.travis-ci.org/AlbanAndrieu/ansible-zap.png?branch=master)](https://travis-ci.org/AlbanAndrieu/ansible-zap)
 
 ## Actions
 
 - Ensures that zap is installed (using `apt`)
 
+Usage example
+------------
 
-## Usage:
-```
-  - name: Install zap
-    hosts: zap
-    user: root
-  #  connection: local
+    - name: Install zap
+      hosts: zap
+      user: root
     
-    roles:
-      - zap      
-```
+      roles:
+        - zap      
+        
+Requirements
+------------
 
-## License
+none
+
+Dependencies
+------------
+
+none
+
+License
+-------
 
 MIT
