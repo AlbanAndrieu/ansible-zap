@@ -5,4 +5,4 @@
     - ansible-zap
 
   vars:     
-       docker_files_generated_directory         : ""
+       docker_files_generated_directory: ""
