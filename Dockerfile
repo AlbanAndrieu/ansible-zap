@@ -18,6 +18,9 @@ WORKDIR /home/vagrant
 # COPY
 #COPY
 
+RUN         pwd
+RUN         ls -lrta
+
 # ADD
 ADD defaults $WORKDIR/defaults
 ADD meta $WORKDIR/meta
@@ -35,6 +38,7 @@ ADD playbook.yml $WORKDIR/playbook.yml -vvvv
 
 # Execute
 RUN         pwd
+RUN         ls -lrta
 RUN         ansible-playbook $WORKDIR/playbook.yml -i $WORKDIR/hosts -c local
 
 #RUN         apt-get update && \
