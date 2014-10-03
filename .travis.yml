@@ -9,6 +9,6 @@ install:
 script:
   - ansible --version
   - export ANSIBLE_ROLES_PATH="../"
-  - echo localhost > inventory
-  - ansible-playbook -i inventory --syntax-check zap.yml
-  - ansible-playbook -i inventory --connection=local --sudo -vvvv zap.yml
+#  - echo localhost > inventory
+  - ansible-playbook -i hosts --syntax-check zap.yml
+  - ansible-playbook -i hosts --connection=local --sudo -vvvv zap.yml

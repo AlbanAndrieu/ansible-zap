@@ -12,7 +12,7 @@ ENV			DEBIAN_FRONTEND noninteractive
 ENV         JENKINS_HOME /usr/local/zap/zap-2.3.1
 
 # Working dir
-WORKDIR /home/vagrant
+WORKDIR .
 
 # COPY
 #COPY
@@ -20,21 +20,20 @@ WORKDIR /home/vagrant
 # ADD
 ADD defaults $WORKDIR/defaults
 ADD meta $WORKDIR/meta
-ADD files $WORKDIR/files
+#ADD files $WORKDIR/files
 ADD handlers $WORKDIR/handlers
 ADD tasks $WORKDIR/tasks
 ADD templates $WORKDIR/templates
 #ADD vars $WORKDIR/vars
-ADD docker $WORKDIR/docker
 
 # Here we continue to use add because
 # there are a limited number of RUNs
 # allowed.
-ADD docker/hosts /etc/ansible/hosts
-ADD docker/playbook.yml $WORKDIR/playbook.yml
+ADD hosts /etc/ansible/hosts
+ADD playbook.yml $WORKDIR/playbook.yml -vvvv
 
 # Execute
-RUN         ansible-playbook $WORKDIR/playbook.yml -c local
+RUN         ansible-playbook $WORKDIR/playbook.yml -i $WORKDIR/hosts -c local
 
 #RUN         apt-get update && \
 #            apt-get install -y openssh-server openjdk-7-jre-headless
