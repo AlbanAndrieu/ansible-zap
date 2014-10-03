@@ -35,7 +35,6 @@ ADD playbook.yml $WORKDIR/playbook.yml -vvvv
 
 # Execute
 RUN         pwd
-RUN         mkdir /home/vagrant
 RUN         ansible-playbook $WORKDIR/playbook.yml -i $WORKDIR/hosts -c local
 
 #RUN         apt-get update && \
