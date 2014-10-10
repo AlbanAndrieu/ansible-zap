@@ -20,7 +20,7 @@ WORKDIR /home/vagrant
 
 RUN         pwd
 RUN         ls -lrta
-#RUN         mkdir $WORKDIR/ansible-zap
+RUN         mkdir $WORKDIR/ansible-zap
 
 # ADD
 ADD defaults $WORKDIR/ansible-zap/defaults
@@ -40,6 +40,8 @@ ADD zap.yml $WORKDIR/zap.yml
 # Execute
 RUN         pwd
 RUN         ls -lrta
+RUN         mkdir /usr/local/zap/
+RUN         ls -lrta /usr/local
 RUN         ansible-playbook $WORKDIR/zap.yml -c local -vvvv
 
 #RUN         apt-get update && \
