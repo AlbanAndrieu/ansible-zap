@@ -34,12 +34,12 @@ ADD templates $WORKDIR/ansible-zap/templates
 # there are a limited number of RUNs
 # allowed.
 ADD hosts /etc/ansible/hosts
-ADD zap.yml $WORKDIR/zap.yml
+ADD zap.yml $WORKDIR/ansible-zap/zap.yml
 
 # Execute
 RUN         pwd
 RUN         ls -lrta
-RUN         ansible-playbook $WORKDIR/zap.yml -c local -vvvv
+RUN         ansible-playbook $WORKDIR/ansible-zap/zap.yml -c local -vvvv
 
 #RUN         apt-get update && \
 #            apt-get install -y openssh-server openjdk-7-jre-headless
