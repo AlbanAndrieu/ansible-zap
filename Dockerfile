@@ -1,4 +1,4 @@
-# Ansible managed: /workspace/users/albandri10/env/ansible/roles/zap/templates/Dockerfile.j2 modified on 2014-09-30 23:50:06 by albandri on albandri-laptop-misys
+# Ansible managed: /workspace/users/albandri10/env/ansible/roles/zap/templates/Dockerfile.j2 modified on 2014-10-10 17:47:33 by albandri on albandri-laptop-misys
 #FROM        debian:jessie
 #FROM        stackbrew/ubuntu:14.04
 FROM        jasongiedymin/ansible-base-ubuntu
@@ -14,14 +14,12 @@ ENV         WORKDIR /home/vagrant
 
 # Working dir
 WORKDIR /home/vagrant
-  
+
 # COPY
 #COPY
 
 RUN         pwd
 RUN         ls -lrta
-
-#RUN         mkdir $WORKDIR/ansible-zap
 
 # ADD
 ADD defaults $WORKDIR/ansible-zap/defaults
@@ -42,7 +40,6 @@ ADD zap.yml $WORKDIR/zap.yml
 RUN         pwd
 RUN         ls -lrta
 RUN         ansible-playbook $WORKDIR/zap.yml -c local -vvvv
-RUN         ls -lrta /usr/local/zap
 
 #RUN         apt-get update && \
 #            apt-get install -y openssh-server openjdk-7-jre-headless
