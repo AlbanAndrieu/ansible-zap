@@ -20,15 +20,16 @@ WORKDIR /home/vagrant
 
 RUN         pwd
 RUN         ls -lrta
+RUN         mkdir $WORKDIR/ansible-zap
 
 # ADD
-ADD defaults $WORKDIR/defaults
-ADD meta $WORKDIR/meta
-#ADD files $WORKDIR/files
-ADD handlers $WORKDIR/handlers
-ADD tasks $WORKDIR/tasks
-ADD templates $WORKDIR/templates
-#ADD vars $WORKDIR/vars
+ADD defaults $WORKDIR/ansible-zap/defaults
+ADD meta $WORKDIR/ansible-zap/meta
+#ADD files $WORKDIR/ansible-zap/files
+ADD handlers $WORKDIR/ansible-zap/handlers
+ADD tasks $WORKDIR/ansible-zap/tasks
+ADD templates $WORKDIR/ansible-zap/templates
+#ADD vars $WORKDIR/ansible-zap/vars
 
 # Here we continue to use add because
 # there are a limited number of RUNs
