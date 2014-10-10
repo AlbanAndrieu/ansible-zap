@@ -9,7 +9,7 @@ VOLUME      [/usr/local/zap]
 MAINTAINER  Alban Andrieu "https://github.com/AlbanAndrieu"
 
 ENV			DEBIAN_FRONTEND noninteractive
-ENV         JENKINS_HOME /usr/local/zap/zap-2.3.1
+ENV         ZAP_HOME /usr/local/zap/zap-2.3.1
 ENV         WORKDIR /home/vagrant
 
 # Working dir

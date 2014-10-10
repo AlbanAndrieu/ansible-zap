@@ -9,7 +9,8 @@ VOLUME      [{{ docker_volume_directory }}]
 MAINTAINER  Alban Andrieu "https://github.com/AlbanAndrieu"
 
 ENV			DEBIAN_FRONTEND noninteractive
-ENV         JENKINS_HOME {{ zap_home_dir }}
+ENV         ZAP_HOME {{ zap_home_dir }}
+ENV         WORKDIR /home/vagrant
 
 # Working dir
 WORKDIR {{ docker_working_directory }}
