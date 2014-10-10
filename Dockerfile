@@ -20,7 +20,8 @@ WORKDIR /home/vagrant
 
 RUN         pwd
 RUN         ls -lrta
-RUN         mkdir $WORKDIR/ansible-zap
+
+#RUN         mkdir $WORKDIR/ansible-zap
 
 # ADD
 ADD defaults $WORKDIR/ansible-zap/defaults
@@ -35,13 +36,13 @@ ADD templates $WORKDIR/ansible-zap/templates
 # there are a limited number of RUNs
 # allowed.
 ADD hosts /etc/ansible/hosts
-ADD zap.yml $WORKDIR/ansible-zap/zap.yml
+ADD zap.yml $WORKDIR/zap.yml
 
 # Execute
 RUN         pwd
 RUN         ls -lrta
+RUN         ansible-playbook $WORKDIR/zap.yml -c local -vvvv
 RUN         ls -lrta /usr/local/zap
-RUN         ansible-playbook $WORKDIR/ansible-zap/zap.yml -c local -vvvv
 
 #RUN         apt-get update && \
 #            apt-get install -y openssh-server openjdk-7-jre-headless
