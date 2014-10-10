@@ -39,7 +39,8 @@ ADD zap.yml $WORKDIR/zap.yml
 # Execute
 RUN         pwd
 RUN         ls -lrta
-RUN         ansible-playbook $WORKDIR/zap.yml -i $WORKDIR/hosts -c local -vvvv
+#RUN         ansible-playbook $WORKDIR/zap.yml -i $WORKDIR/hosts -c local -vvvv
+RUN         ansible-playbook $WORKDIR/zap.yml -c local -vvvv
 
 #RUN         apt-get update && \
 #            apt-get install -y openssh-server openjdk-7-jre-headless
