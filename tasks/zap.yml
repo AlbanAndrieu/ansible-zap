@@ -26,27 +26,31 @@
   get_url:
     url="{{zap_url}}"
     dest="{{ tempdir.stdout }}/{{zap_archive}}"
+  register: zap_download    
   tags: zap_setup
-#    dest="/tmp/{{zap_archive}}"
-
+  
 - name: Create base directory
   file:
     dest="{{zap_base_dir}}"
     state=directory
     owner="{{zap_owner}}"
     group="{{zap_group}}"
+  when: zap_download.changed    
   tags: zap_setup
 
 - name: Extract archive zap
-  unarchive:
-    src="{{ tempdir.stdout }}/{{zap_archive}}"
-    dest="{{zap_base_dir}}"
-    owner="{{zap_owner}}"
-    group="{{zap_group}}"
-    copy=no
-  sudo_user: "{{zap_owner}}"
-  tags: zap_setup
-#    src="/tmp/{{zap_archive}}"
+  command: tar xzf {{ tempdir.stdout }}/{{zap_archive}} -C {{zap_base_dir}}/{{zap_name}} --strip-components=1
+  when: zap_download.changed
+
+#- name: Extract archive zap
+#  unarchive:
+#    src="{{ tempdir.stdout }}/{{zap_archive}}"
+#    dest="{{zap_base_dir}}"
+#    owner="{{zap_owner}}"
+#    group="{{zap_group}}"
+#    copy=no
+#  sudo_user: "{{zap_owner}}"
+#  tags: zap_setup
 
 - name: create a link to zap
   file:
