@@ -31,7 +31,7 @@
 
 - name: Create base directory
   file:
-    dest="{{zap_base_dir}}/"
+    dest="{{zap_base_dir}}"
     state=directory
     owner="{{zap_owner}}"
     group="{{zap_group}}"
@@ -40,7 +40,7 @@
 - name: Extract archive zap
   unarchive:
     src="{{ tempdir.stdout }}/{{zap_archive}}"
-    dest="{{zap_base_dir}}/"
+    dest="{{zap_base_dir}}"
     owner="{{zap_owner}}"
     group="{{zap_group}}"
     copy=no
