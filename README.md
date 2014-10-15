@@ -7,14 +7,15 @@ A role for installing zap.
 
 ## Actions
 
-- Ensures that zap is installed (using `apt`)
+- Ensures that [zap](https://code.google.com/p/zaproxy/) is installed (using `ansible`)
+- Once zaproxy is installed using ansible, a docker image is automatically created, so please do not hesitate to enhance ansible script it will then improve docker image.
 
 Usage example
 ------------
 
     - name: Install zap
       hosts: zap
-      user: root
+      remote_user: root
     
       roles:
         - zap      

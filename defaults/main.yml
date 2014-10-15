@@ -9,6 +9,8 @@ zap_owner: "zap"
 zap_group: "zap"
 zap_shell: "/bin/false" #/bin/bash
 zap_base_dir: "/usr/local/zap"
+tempdir: "/tmp"
+zap_dir_tmp: "{{ tempdir.stdout }}"
 
 ## Most likely you dont need to edit 
 #todo zap_service_enabled   : 'yes'
