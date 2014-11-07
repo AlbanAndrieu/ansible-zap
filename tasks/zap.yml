@@ -17,7 +17,7 @@
   tags: zap_setup
 
 - name: shell | Check user
-  user: name={{ zap_owner }} state=present
+  user: name={{ zap_owner }} state={{ zap_user_state }}
 
 - name: shell | Check user home directory
   stat: path={{ zap_owner_home }}

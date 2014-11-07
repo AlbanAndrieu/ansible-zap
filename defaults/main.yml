@@ -16,6 +16,8 @@ zap_base_dir: "/usr/local/zap"
 zap_owner_home: "{{ zap_base_dir }}"
 zap_link_base_dir: "/opt"
 zap_dir_tmp: "/tmp" # or override with "{{ tempdir.stdout }} in order to have be sure to download the file"
+zap_user_state: present
+#zap_pkg_state: present
 
 ## Most likely you dont need to edit 
 #todo zap_service_enabled   : 'yes'
