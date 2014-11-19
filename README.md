@@ -7,7 +7,9 @@ which can be used to perform penetration testing.
 
 ### Installation
 
-This role requires at least Ansible `v1.6.3`. To install it, run:
+This role requires at least Ansible `v1.6.3`. 
+
+To install it, run:
 
     ansible-galaxy install alban.andrieu.zap
 
