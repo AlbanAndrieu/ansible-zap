@@ -1,4 +1,4 @@
-## zap
+## alban.andrieu.zap
 
 [![Travis CI](http://img.shields.io/travis/AlbanAndrieu/ansible-zap.svg?style=flat)](http://travis-ci.org/AlbanAndrieu/ansible-zap) [![Branch](http://img.shields.io/github/tag/AlbanAndrieu/ansible-zap.svg?style=flat-square)](https://github.com/AlbanAndrieu/ansible-zap/tree/master) [![Donate](https://img.shields.io/gratipay/AlbanAndrieu.svg?style=flat)](https://www.gratipay.com/AlbanAndrieu)  [![Ansible Galaxy](http://img.shields.io/badge/galaxy-alban.andrieu.zap-blue.svg?style=flat)](https://galaxy.ansible.com/list#/roles/1614) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
@@ -20,8 +20,7 @@ To install it, run:
 List of default variables available in the inventory:
 
 ```yaml
-    ---
-    zap_enabled: yes                       # Enable module
+        zap_enabled: yes                       # Enable module
     
     #zap_listen_ip: "127.0.0.1"
     #zap_port: "8090"
@@ -68,7 +67,7 @@ Describe how to use in more detail...
 
 ### Authors and license
 
-`zap` role was written by:
+`alban.andrieu.zap` role was written by:
 - [Alban Andrieu](fr.linkedin.com/in/nabla/) | [e-mail](mailto:alban.andrieu@free.fr) | [Twitter](https://twitter.com/AlbanAndrieu) | [GitHub](https://github.com/AlbanAndrieu)
 - License: [GPLv3](https://tldrlegal.com/license/gnu-general-public-license-v3-%28gpl-3%29)
 

@@ -1,4 +1,3 @@
----
 zap_enabled: yes                       # Enable module
 
 #zap_listen_ip: "127.0.0.1"
