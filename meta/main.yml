@@ -28,7 +28,7 @@ ansigenome_info:
   galaxy_id: '1614'
   galaxy_user: 'alban.andrieu'
   galaxy_name: 'zap'
-  
+
   travis: True
 
   authors:
@@ -37,13 +37,15 @@ ansigenome_info:
       email: 'alban.andrieu@free.fr'
       twitter: 'AlbanAndrieu'
       github: 'AlbanAndrieu'
-      
+
   synopsis: |
     This ``Simple`` role allows you to install [Zap](https://code.google.com/p/zaproxy/) zaproxy service
-    which can be used to perform penetration testing.   
+    which can be used to perform penetration testing.
 
   usage: |
-    Describe how to use in more detail...
+    This ansible script has been created to work with [zaproxy maven plugin](https://github.com/AlbanAndrieu/zap-maven-plugin).
+    This plugin is tested using the following project [bodgeit-maven](https://github.com/AlbanAndrieu/bodgeit-maven).
+    For Jenkins I recommend using [Zapper+Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Zapper+Plugin) with or without this ansible playbook
 
   #custom: |
   #  Any custom output you want after the usage section..
