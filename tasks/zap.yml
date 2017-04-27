@@ -29,7 +29,7 @@
 - name: zap | Create temporary directory
   shell: mktemp -d
   register: tempdir
-  sudo: true
+  become: yes
   tags: zap_setup
 
 - name: zap | Download zap
@@ -109,5 +109,8 @@
 - name: zap | Cleanup temporary directory
   file: name={{ tempdir.stdout }} state=absent
   tags: zap_setup
-
+  changed_when: false    
+  ignore_errors: "{{ ansible_check_mode }}"    
+  become: yes
+  
 - debug: msg=" zap | Start zap {{zap_base_dir}}/{{zap_name}}/zap.sh"
