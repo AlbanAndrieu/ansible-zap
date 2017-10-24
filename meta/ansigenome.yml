@@ -28,7 +28,8 @@ ansigenome_info:
   galaxy_id: '1614'
   galaxy_user: 'alban.andrieu'
   galaxy_name: 'zap'
-
+  galaxy_docker_name: 'ansible-zap'
+  
   travis: True
 
   authors:
