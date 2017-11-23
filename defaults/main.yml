@@ -14,7 +14,8 @@ zap_base_dir: "/usr/local/zap"
 #zap_owner_home: "{{ home }}"
 zap_owner_home: "{{ zap_base_dir }}"
 zap_link_base_dir: "/opt"
-zap_dir_tmp: "/tmp" # or override with "{{ tempdir.stdout }} in order to have be sure to download the file"
+#zap_dir_tmp: "/tmp" # or override with "{{ tempdir.stdout }} in order to have be sure to download the file"
+zap_dir_tmp: "{{ tempdir.stdout }}"
 zap_user_state: present
 #zap_pkg_state: present
 
